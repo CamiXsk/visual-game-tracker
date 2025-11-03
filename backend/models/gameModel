@@ -1,0 +1,26 @@
+const mongoose = require('mongoose');
+
+const gameSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  platform: {
+    type: String,
+    required: true
+  },
+  hoursPlayed: {
+    type: Number,
+    default: 0
+  },
+  image: {                 // 👈 AÑADE ESTA PARTE
+    type: String,
+    default: ""            // valor vacío si no se envía imagen
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+module.exports = mongoose.model('Game', gameSchema);
